@@ -16,6 +16,21 @@ buildNum = 'b - 40';
 #name of game so I dont have to go threw the whole program when i come up with a tital
 gameName = 'insert game tital later';
 
+#stat holders
+HP = 0;
+STR = 0;
+MAG = 0;
+SPD = 0;
+LCK = 0;
+DEF = 0;
+RES = 0;
+EXP = 0;
+ATK = 0;
+# 100 copper = 1 silver 100 silver = 1 gold
+GOLD = 0;
+SILVER = 0;
+COPPER = 0;
+
 #where the actual game is located
 trueGameFile = 'insert where the game is located later';
 
@@ -89,7 +104,7 @@ def ca():
             os.system('cls');
             #tell user loading
             print("Loading...");
-            satCreate();
+            #satCreate();
             #make a new file
             f = open(userName + ".py", 'w+');
             #open file
@@ -133,6 +148,7 @@ def lExit():
     
 
 def dis():
+    os.system('mode con cols=150');
     #clear screen as game loads
     os.system('cls');
     #print the game name and version number
@@ -181,9 +197,27 @@ def mainMenu():
 #something in here doesnt work I think fix it later
 def statCreate():
     #base HP stat 25 random chance of getting up to 10 added
-    HP = 25 + randomint(0, 10);
-    #print HP to make sure it works
-    print(HP);
+    global HP;
+    global STR;
+    global MAG;
+    global SPD;
+    global LCK;
+    global DEF;
+    global RES;
+    global GOLD;
+    global SILVER;
+    global COPPER;
+    HP = 25 + random.randint(-10, 10);
+    STR = random.randitn(10, 15);
+    MAG = random.randit(1, 5);
+    SPD = random.randit(5, 10);
+    LCK = random.randit(1, 10);
+    DEF = random.randit(1, 10);
+    RES = random.randit(1, 5);
+    # 100 copper = 1 silver 100 silver = 1 gold
+    GOLD = 10;
+    SILVER = 100;
+    COPPER = 1000;
     #sleep for 10 seconds
     time.sleep(10);
 
