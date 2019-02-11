@@ -4,13 +4,14 @@ import turtle;
 import math;
 import time;
 from pathlib import Path;
+import random;
 
 #previous version/buildnumbers
 #pre-Alpha.0.0.0.25-0
 
 #define the version number of the game stage.major.minor.patch.buildNumber
 gameVer = 'pre-Alpha.0.0.1';
-buildNum = 'b - 30';
+buildNum = 'b - 40';
 
 #name of game so I dont have to go threw the whole program when i come up with a tital
 gameName = 'insert game tital later';
@@ -88,19 +89,20 @@ def ca():
             os.system('cls');
             #tell user loading
             print("Loading...");
+            satCreate();
             #make a new file
             f = open(userName + ".py", 'w+');
             #open file
             
             #write all char and user info to the user file
-            f.write("global userName = " + '\'' + userName + '\n');
+            f.write("global userName = " + '\'' + userName + '\'' + '\n');
             f.write("global name = " + '\'' + name + '\'' + '\n');
             f.write("global charName = " + '\'' + charName + '\'' + '\n');
             f.write("global charRace = " + '\'' + charRace+ '\'' + '\n');
             f.write("global charAge = " + '\'' + charAge + '\'' + '\n');
             f.write("global charHair = " + '\'' + charHair + '\'' + '\n');
             f.write("global charSkin = " + '\'' + charSkin + '\'' + '\n');
-            f.write("global charHight = " + '\'' + charHight + '\''  + '\n');
+            f.write("global charHight = " + '\'' + charHight + '\'' + '\n');
             f.write("global charBody = " + '\'' + charBody + '\'' + '\n');
             #close file
             f.close();
@@ -108,7 +110,7 @@ def ca():
             os.system('cls');
             #print instructions
             print("""USER CREATION SUCSESS
-                     To login to your account when you return to the main menu press 1""");
+                   To login to your account when you return to the main menu press 1""");
             print("loading");
             time.sleep(10);
             mainMenu();
@@ -173,6 +175,17 @@ def mainMenu():
         print('please select a valid option')
         time.sleep(4);
         mainMenu();
+
+
+#generate the stats for the user
+#something in here doesnt work I think fix it later
+def statCreate():
+    #base HP stat 25 random chance of getting up to 10 added
+    HP = 25 + randomint(0, 10);
+    #print HP to make sure it works
+    print(HP);
+    #sleep for 10 seconds
+    time.sleep(10);
 
 
 
