@@ -41,6 +41,10 @@ def login():
 
 #create a account
 def ca():
+    global userName;
+    global name;
+    global charName;
+    global userFile;
     os.system('cls');
     print("Create user account");
     #get user information to create profile file
@@ -59,76 +63,114 @@ def ca():
         ca();
     #if userneame is avalible run this
     else:
-        print("Username is avalible. Continueing to character creation.");
-        time.sleep(3);
+        cfile();
+    cfile();
+
+
+def cfile():
+    global userName;
+    global name;
+    global charName;
+    global userFile;
+    print("Username is avalible. Continueing to character creation.");
+    time.sleep(3);
+    os.system('cls');
+    #print already gathered info
+    print("Your username is", userName);
+    print("Your real namem is", name);
+    print("Your characters name is", charName);
+    #get character discription info
+    #get character race i.e. Human Elf Demi-Human
+    charRace = input("What is your characters race? : ");
+    #get character age
+    charAge = input("What is your characters age? : ");
+    #get character hair color
+    charHair = input("What is your characters hair color? : ");
+    #get character skin color
+    charSkin = input("What is your characters skin color? : ");
+    #get characters hight
+    charHight = input("What is your characters hight? : ");
+    #get characters body shape i.e. Thin Stocky Muscular Fat
+    charBody = input("What is your characters body shape? : ");
+    print("Loading");
+    time.sleep(4);
+    os.system('cls');
+    #check all char info is correct
+    print("Your username is", userName);
+    print("Your real name is", name);
+    print("Your characters name is", charName);
+    print("Your characters race is", charRace);
+    print("Your characters age is", charAge);
+    print("Your characters hair color is", charHair);
+    print("Your characters skin color is", charSkin);
+    print("Your character hight is", charHight);
+    print("Your charactes body shape is", charBody);
+    userInput = input("Is this corect if no the account creation proccess will reset? : ");
+    #if incorect do this
+    if userInput.lower() == 'no':
+        print("Restarting Account Creation...");
+        time.sleep(2);
+        ca();
+    #if correct do this
+    if userInput.lower() == 'yes':
+        #clear screen
         os.system('cls');
-        #print already gathered info
-        print("Your username is", userName);
-        print("Your real namem is", name);
-        print("Your characters name is", charName);
-        #get character discription info
-        #get character race i.e. Human Elf Demi-Human
-        charRace = input("What is your characters race? : ");
-        #get character age
-        charAge = input("What is your characters age? : ");
-        #get character hair color
-        charHair = input("What is your characters hair color? : ");
-        #get character skin color
-        charSkin = input("What is your characters skin color? : ");
-        #get characters hight
-        charHight = input("What is your characters hight? : ");
-        #get characters body shape i.e. Thin Stocky Muscular Fat
-        charBody = input("What is your characters body shape? : ");
-        print("Loading");
-        time.sleep(4);
+        #tell user loading
+        print("Loading...");
+        #satCreate();
+        #make a new file
+        f = open(userName + ".py", 'w+');
+        #open file
+        
+        #write all char and user info to the user file
+        f.write("global userName \n");
+        f.write("global name \n");
+        f.write("global charName \n");
+        f.write("global charRace \n");
+        f.write("global charAge \n");
+        f.write("global charHair \n");
+        f.write("global charSkin \n");
+        f.write("global charHight \n");
+        f.write("global charBody \n");
+        f.write("global HP \n");
+        f.write("global STR \n");
+        f.write("global MAG \n");
+        f.write("global SPD \n");
+        f.write("global LCK \n");
+        f.write("global DEF \n");
+        f.write("global RES \n");
+        f.write("global GOLD \n");
+        f.write("global SILVER \n");
+        f.write("global COPPER \n");
+        f.write("userName = " + '\'' + userName + '\'' + '\n');
+        f.write("name = " + '\'' + name + '\'' + '\n');
+        f.write("charName = " + '\'' + charName + '\'' + '\n');
+        f.write("charRace = " + '\'' + charRace+ '\'' + '\n');
+        f.write("charAge = " + '\'' + charAge + '\'' + '\n');
+        f.write("charHair = " + '\'' + charHair + '\'' + '\n');
+        f.write("charSkin = " + '\'' + charSkin + '\'' + '\n');
+        f.write("charHight = " + '\'' + charHight + '\'' + '\n');
+        f.write("charBody = " + '\'' + charBody + '\'' + '\n');
+        f.write("HP = " + '\'' + str(HP) + '\'' + '\n');
+        f.write("STR = " + '\'' + str(STR) + '\'' + '\n');
+        f.write("MAG = " + '\'' + str(MAG) + '\'' + '\n');
+        f.write("SPD = " + '\'' + str(SPD) + '\'' + '\n');
+        f.write("LCK = " + '\'' + str(LCK) + '\'' + '\n');
+        f.write("DEF = " + '\'' + str(DEF) + '\'' + '\n');
+        f.write("RES = " + '\'' + str(RES) + '\'' + '\n');
+        f.write("GOLD = " + '\'' + str(GOLD) + '\'' + '\n');
+        f.write("SILVER = " +'\'' + str(SILVER) + '\'' + '\n');
+        f.write("COPPER = " + '\'' + str(SILVER) + '\'' + '\n');
+        #close file
+        f.close();
+            
         os.system('cls');
-        #check all char info is correct
-        print("Your username is", userName);
-        print("Your real name is", name);
-        print("Your characters name is", charName);
-        print("Your characters race is", charRace);
-        print("Your characters age is", charAge);
-        print("Your characters hair color is", charHair);
-        print("Your characters skin color is", charSkin);
-        print("Your character hight is", charHight);
-        print("Your charactes body shape is", charBody);
-        userInput = input("Is this corect if no the account creation proccess will reset? : ");
-        #if incorect do this
-        if userInput.lower() == 'no':
-            print("Restarting Account Creation...");
-            time.sleep(2);
-            ca();
-            #if correct do this
-        if userInput.lower() == 'yes':
-            #clear screen
-            os.system('cls');
-            #tell user loading
-            print("Loading...");
-            #satCreate();
-            #make a new file
-            f = open(userName + ".py", 'w+');
-            #open file
-            
-            #write all char and user info to the user file
-            f.write("global userName = " + '\'' + userName + '\'' + '\n');
-            f.write("global name = " + '\'' + name + '\'' + '\n');
-            f.write("global charName = " + '\'' + charName + '\'' + '\n');
-            f.write("global charRace = " + '\'' + charRace+ '\'' + '\n');
-            f.write("global charAge = " + '\'' + charAge + '\'' + '\n');
-            f.write("global charHair = " + '\'' + charHair + '\'' + '\n');
-            f.write("global charSkin = " + '\'' + charSkin + '\'' + '\n');
-            f.write("global charHight = " + '\'' + charHight + '\'' + '\n');
-            f.write("global charBody = " + '\'' + charBody + '\'' + '\n');
-            #close file
-            f.close();
-            
-            os.system('cls');
-            #print instructions
-            print("""USER CREATION SUCSESS
-                   To login to your account when you return to the main menu press 1""");
-            print("loading");
-            time.sleep(10);
-            mainMenu();
+        #print instructions
+        print("""USER CREATION SUCSESS
+                To login to your account when you return to the main menu press 1""");
+        print("loading");
+        time.sleep(10);
+        mainMenu();
 #exit from launcher
 def lExit():
     os.system('cls');
