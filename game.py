@@ -49,52 +49,34 @@ trueGameFile = 'game\\' + option1 ;
 
 #login
 def login():
-    global userNameLog;
-    global userFile;
-    #get users username
     os.system('cls');
-    userNameLog = input('What is your username? : ');
-    #check if username exists
-    userFile = userNameLog + '.py';
+    userName = input('What is your user name? : ');
+    userFile = userName + '.py';
     if os.path.isfile(userFile):
-        loginGood();
+	    loginGood();
     else:
-        errorLog();
-    
+        logError();
 
-#what to do if there was a login errorLog
-def errorLog():
-    os.system('cls');
-    print('ERROR');
-    print("This user profile doesn't exist or has issues try again or make a new profile");
-    time.sleep(10);
-    login();
-    
-    
-#what to do if the login is good
+#if the login is good do this
 def loginGood():
-    os.system('cls');
-    global gameToPlay
-    print('1. HOLDER')
-    gameToPlay = input('Type the number corisponding to the game you want to play : ');
-    if gameToPlay == '1':
-        gameOneStart();
+    global userFile;
+    global gamer;
+    print('1. ' + game1);
+    gamer = input('Type the number of the game you want to play : ');
+    if gamer == '1':
+        os.system('cls');
+        print('LOADING...')
+        f = ('tans.temp' , 'w+');
+        f.write(userName);
+        f.write(random.randint(1, 1000));
     else:
-        gameError();
-
-
-#define where the first game is located and how to load it
-def gameOneStart():
-    #CONTINUE HERE FUCKER
-
-
-#what to do if there was a error in loading the selected game
-def gameError():
+        print('Game does not exitst');
+        loginGood();
     os.system('cls');
-    print('This game does not exist or can not be loaded by the current launcher update from GitHub or try a diffrent game if this is not a valid option');
-    time.sleep(5);
-    os.system('cls');
-    loginGood();
+    print('LOGIN GOOD');
+    print('Loading your save please wait...');
+    
+
 
 
 #create a account
@@ -122,7 +104,7 @@ def ca():
     #if userneame is avalible run this
     else:
         cfile();
-    cfile();
+     
 
 
 def cfile():
