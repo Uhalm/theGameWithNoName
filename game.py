@@ -6,15 +6,27 @@ import time;
 from pathlib import Path;
 import random;
 
+#clear screen and print loading incase computer takes longer than it should starting the GL
+os.system('cls');
+print('loading...')
+
 #previous version/buildnumbers
 #pre-Alpha.0.0.0.25-0
 
 #define the version number of the game stage.major.minor.patch.buildNumber
-gameVer = 'pre-Alpha.0.0.1';
-buildNum = 'b - 40';
+gameVer = 'pre-Alpha.0.2.0';
+buildNum = 'b - 52';
 
 #name of game so I dont have to go threw the whole program when i come up with a tital
 gameName = 'insert game tital later';
+
+#holders for all needed char variables
+userName = 'hold';
+userNameLog = 'hold';
+name = 'hold';
+charName = 'hold';
+gameToPlay = 'hold';
+
 
 #stat holders
 HP = 0;
@@ -32,12 +44,58 @@ SILVER = 0;
 COPPER = 0;
 
 #where the actual game is located
-trueGameFile = 'insert where the game is located later';
+option1 = 'game1.py'
+trueGameFile = 'game\\' + option1 ;
 
 #login
 def login():
-    print("Login");
-    mainMenu();
+    global userNameLog;
+    global userFile;
+    #get users username
+    os.system('cls');
+    userNameLog = input('What is your username? : ');
+    #check if username exists
+    userFile = userNameLog + '.py';
+    if os.path.isfile(userFile):
+        loginGood();
+    else:
+        errorLog();
+    
+
+#what to do if there was a login errorLog
+def errorLog():
+    os.system('cls');
+    print('ERROR');
+    print("This user profile doesn't exist or has issues try again or make a new profile");
+    time.sleep(10);
+    login();
+    
+    
+#what to do if the login is good
+def loginGood():
+    os.system('cls');
+    global gameToPlay
+    print('1. HOLDER')
+    gameToPlay = input('Type the number corisponding to the game you want to play : ');
+    if gameToPlay == '1':
+        gameOneStart();
+    else:
+        gameError();
+
+
+#define where the first game is located and how to load it
+def gameOneStart():
+    #CONTINUE HERE FUCKER
+
+
+#what to do if there was a error in loading the selected game
+def gameError():
+    os.system('cls');
+    print('This game does not exist or can not be loaded by the current launcher update from GitHub or try a diffrent game if this is not a valid option');
+    time.sleep(5);
+    os.system('cls');
+    loginGood();
+
 
 #create a account
 def ca():
