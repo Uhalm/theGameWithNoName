@@ -6,8 +6,25 @@ import time;
 from pathlib import Path;
 import random;
 
+os = 'hold';
+clear = 'cls';
+
+
+os = input('1 for Windows 2 for Unix');
+
+
+if os == '1':
+    clear = 'cls'
+if os == '2':
+    clear = 'clear';
+else:
+    print('Defulting to Windows');
+    clear = 'cls';
+
+
+
 #clear screen and print loading incase computer takes longer than it should starting the GL
-os.system('cls');
+os.system(clear);
 print('loading...')
 
 #previous version/buildnumbers
@@ -49,7 +66,7 @@ trueGameFile = 'game\\' + option1 ;
 
 #login
 def login():
-    os.system('cls');
+    os.system(clear);
     userName = input('What is your user name? : ');
     userFile = userName + '.py';
     if os.path.isfile(userFile):
@@ -64,7 +81,7 @@ def loginGood():
     print('1. ' + game1);
     gamer = input('Type the number of the game you want to play : ');
     if gamer == '1':
-        os.system('cls');
+        os.system(clear);
         print('LOADING...')
         f = ('tans.temp' , 'w+');
         f.write(userName);
@@ -72,7 +89,7 @@ def loginGood():
     else:
         print('Game does not exitst');
         loginGood();
-    os.system('cls');
+    os.system(clear);
     print('LOGIN GOOD');
     print('Loading your save please wait...');
     
@@ -85,7 +102,7 @@ def ca():
     global name;
     global charName;
     global userFile;
-    os.system('cls');
+    os.system(clear);
     print("Create user account");
     #get user information to create profile file
     #get username
@@ -114,7 +131,7 @@ def cfile():
     global userFile;
     print("Username is avalible. Continueing to character creation.");
     time.sleep(3);
-    os.system('cls');
+    os.system(clear);
     #print already gathered info
     print("Your username is", userName);
     print("Your real namem is", name);
@@ -134,7 +151,7 @@ def cfile():
     charBody = input("What is your characters body shape? : ");
     print("Loading");
     time.sleep(4);
-    os.system('cls');
+    os.system(clear);
     #check all char info is correct
     print("Your username is", userName);
     print("Your real name is", name);
@@ -154,7 +171,7 @@ def cfile():
     #if correct do this
     if userInput.lower() == 'yes':
         #clear screen
-        os.system('cls');
+        os.system(clear);
         #tell user loading
         print("Loading...");
         #satCreate();
@@ -204,7 +221,7 @@ def cfile():
         #close file
         f.close();
             
-        os.system('cls');
+        os.system(clear);
         #print instructions
         print("""USER CREATION SUCSESS
                 To login to your account when you return to the main menu press 1""");
@@ -213,26 +230,27 @@ def cfile():
         mainMenu();
 #exit from launcher
 def lExit():
-    os.system('cls');
+    os.system(clear);
     #ask if user actually wants to exit
     userInput = input("Are you sure you want to exit? (yes/no) : ");
 
     #check if the user wants to exit or not
     if userInput.lower() == 'yes':
-        os.system('cls');
+        os.system(clear);
         print("Thank you for playing", gameName);
         time.sleep(3);
         exit();
 
     if userInput.lower() == 'no':
-        os.system('cls');
+        os.system(clear);
         mainMenu();
     
 
 def dis():
-    os.system('mode con cols=150');
+    os.system('color 0F');
+    os.system('mode con cols=200');
     #clear screen as game loads
-    os.system('cls');
+    os.system(clear);
     #print the game name and version number
     print(gameName, gameVer);
     #print the version disclaimer
@@ -242,10 +260,101 @@ def dis():
     print("Loading...");
     #Sleep on the Disclaimer for 10 seonds
     time.sleep(10);
+	
+	
+	
+	
+def momo():
+    os.system('color F9');
+    print(""":::::::::::::::::::::::::::::::::::::::::::----::::::::::::::::::::::::::///+++++oosoosssssssyyysyhhhhyyyyyyyyyyyyysssssssooo+++////::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::---::::::::::::::::::::::::-----::///:://////+osyyyyhddddhys++//////////::::::::::::::::::::::::::::---------:-------::::::::-----------:::::::::::::::-----
+://///::::::::::::::::::::::::::::::::::::::---::::::::::::::::::::::::---------::/:/+syhdddddddmmmmmmmmmdyo/:::::::::::---::::::-:-:::::::::------------------------------------------::::-------------
+/////////::::::::::::::::::::::::::::::::::::--:/://///::::::::::::::::-----------:/sdmdhyhddyo+ymmmmdydmmmdhs/::::::::--------:-----::-----------------------------------------------------------------
+//////////::::::::::::::::::::::::::::::::::::-:///////:/:::::::::::::::---------:sdmhsoyddho::/:syddmsohdmdddhs/:::::----------------:-----------------------------------------------------------------
+///////////:::::::::::::::::::::::::::::::::::-:///////::::::::::::::::::-------:ymmyosddhho/::/::ohhddo/yddddddh+::-------------:::::::::::::::/:------------------------------------------------------
+///////////::::::::::::::::::::::::::::::::::::://////:::::::::::::::::::------:hdmyosdhdhs///://::sdhdd++hmdddddd+:------------:/+////////::://+:-----:----------------------------::::::::::::-----:::
+///////////::::::::::::::::::::::::::::::::::::://////:::::::::::::::::::-----:sdmhoyhddyy////////:/ddddh+sdmmmmmdd/:---------:://///////++/::///:----::-------------------:::::::::::::::::::::::::::::
+//////////::::::::::::::::::::::::::::::::::::::////:::::::::::::::::::::------ddmyyyddys+//++++/+//smmhm+sdmmmmmmdy:--------::/+////++-.-/+/:://:-----------------------:::::::::::::::::::::::::::::::
+////////::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::------:dydsyhhyoy+++/++++//++dmyd+sdmmmmmmmd+--------:///////oo/::+o/:://:---------------------::::::::///////////////////////::
+///////:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-------syyossyoos++++++ooo+++ymhhosdmNmmmmmms:------::/+/////+oooo+/::://---------------------:::::::///////////////////////////
+///////::::::::::::::::::::::::::::::::::::::::::::::::::::::----:::::---------+yhysssoosoosyyhhdhyo+syhyoshmNmmmmmmh:------:://////+oooo++++////-------------------::::::://///////////////////////////
+//////:::::::::::::::::::::::::::::::::::::::::::::::::::::::::---::::---------sdhddhsooosshdmhsssyhoosooooymmmmmmmmm/------::/+////+++++++++////------------------::::::://////////////////////////////
+////:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::---:::----------+yddyhho++osdmdhy+//smoo+///ommmmmmmmms------::/+/+//+oo++++++///:-----------------:::::::///////////////////::::////////
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--:::----------/ymdhhd+//+ohmdmmdoosmso////ommmmmmmmmd:-----::/+/+//+++++++++///:-----------------::::::////////////////////:::::///////
+::::::::::::::::::::::::::::::::::::::::::::::-::::::::::::::::::::::----------/yhdddy+/:/+ohmddhhhdyo////+ymNmmmmmmmd/-----::/+////++++++++////:-------:---------:::::///////////////++/////:::////////
+::::::::::::::::::::::::::::::::::::::::::::::-::::::::::::::::::::::----------/yhdhso/:://+shddddhs+///++oymNmmmmmNmds:----::/+////+ooooo++////:------::---------::::://////////////++++++/////////////
+::::::::::::::::::::::::::::::::::::::::::::::-::::::::::::::::::::::---------::oyyoo+::://+oosyyyso++++osydmNmmmNNmmdy:----:://///osssssssoo///:------::--------:::::://////////////+++++++++++++++////
+::::::::::::::::::::::::::::::::::::::::::::::-::::::::::::::::::::::---------:-ysooo/:::://+++ooooooosssshmmNmmmNNmmms/::-:::////+ssshdhssss+//:----::::--------:::::://////////////++++++++++++++++///
+:::::::::::::::::::::::::::::::::::::::::::::--:::::::::::::::::::::::--------::sdyoososs+////++oosyyyyyhhmmNNmmNNNmmmo+:/::://+//+sssyhyssso///:--::::::--------:::::://///////////++++++ooooo++++++///
+::::::::::::::::::::::::::::::::::::::::::::---:::::::::::::::::::::::-------:::smmooysoyy++///++osssshhyydmNNNmNNNmmm+/::---://///ossssssso////--:::::::--------:::::://///////////++++++ooooo+++++++//
+:::::::::::::::::::::::------::::::::::::::----:::::::::::::::::::::::-------:::omNhooo++o++//+++ooyhhysyhdmNNNNNNNNmmo/:----:////://+ooo+////+/--:::::::--------::::::////////////++++++++o++++++++++//
+::::::::::::::::::::::::-------:::::::::::-----:::::::::::::::::::::::--------:-+dNNyooo+++++++oyhdhssyhhdmNNNNNNNNmmm+:----::///++++++++++++++/--:::::::--------::::::////////////++++++++++++++++++++/
+::::::::::::::::::::::::::-----::::::::::------::::::::::::::::::::::----------:oyNNNyooo++oshddhysssyhhdmNNNNNNNNNNmm/:----::/+++oooooooooooo+/:::::::::--------::::::////////////++++++++++++++++++++/
+:::::::::::::::::::::::::::----:::::::::-------:::::::::::::::::::::::---------:oyNNNmhyhhdddhyssssyyhdmmmNNNNNNNNNNmm/------:///////++++++++/:::::::::::--------::::::///////////+++++++++++++++++++++/
+::::::::::::::::::::::::::::---::::::::--------:::::::::////::::::::::---------:/ymNNNNmhyyyssssssyyhdmmmmmmNNNNNNNmmd:----------::::::::::::::::::::::::---------::::////////////+++++++++++++++++++++/
+:::::::::::::::::::::::::::::::::::::::--------:::::://////:::::::::::---------:/smmNNNNNdysssssyyhhdddddmmmNmNNNNmmmm:-------------------:::::::::::::::--------:::::////////////+++++++++++++++++++++/
+:::::::::::::::::::::::::::::::::::::::--------::::///////////:::::::::--------:/ommNNNNNNNdhhhyyyyyyyhddmmmNmNNNNmmmm/-------------------::::::::::::::/:-------:::::////////////+++++++++++++++++++++/
+:::::::::::::::::::::::::::::::::::::::--------:::////////////::::::::::-------:/oNmNNNNNNNNmNNhysssyyhhdmmmNmNNNNmmmmo--------------------:::::::::::://:-------::::://///////////++++++++++++++++++++/
+:::::::::::::::::::::::::::::::::::::::--------:://///////////:/::/::::::------:/oNmNNmmNNNNmNNdyssssyyhddmmmNNNNNNmmmdo/:-----------------:::::::::::://::------::::://////////////++++++++++++++++++//
+:::::::::::::::::::::::::::::::::::::::--------:////////////////////::::::::---//+NmNdmmNNNNdmNmsysssyyhddmmmNNNNNNmmmmdyo/:---------------:::::::::::://::-----:::::://////////////+++++++ooo++++++++//
+::::::::::::::::::::::::::::::::::::::::-------://////////////////////:::::::--:/omdNmmNNNNNmNNdoyysssyhhdmmmNNNNNNNmmmmmhhs/---::---------:::::::::::://:::----:::::://////////////++++ooooooooo+++++//
+::::::::::::::::::::::::::::::::::::::::-------://////////////////+/////:::::::::ohmNmdmNNNNNNNdyhhyssyyhdmmmNNNNNNNmmddmmdhy+:-:/:--------:::::::::::////::----::::::////////////++++ooooooooooooo++++/
+:::::::::::::::::::::::::::::::::::::::--------://///////////++++++++/////:::::/:+ydNdmmNNNNNNNmdddhyyyyhdmdmNNNNNNmmmhyyddmdd+-:+:--------:::::::::://///:::----:::::///////////++++oooosssssssooooo+++
+::::::::::::::::::::::::::::::::::::::::-------:////////////++++++++++/////::::/:/shNdmNmNNNNNNddddhhyyyyhddmNNNNNNNmdyo++ooyddo++-----:::::::::///////++/:::---:::::://///////++++ooosssssssssssssoooo+
+:::::::::::::::::::::::::::::::::::::::::------:////////////++++++++++//////:::::/+omdhNmNNNNNNdhyhhhhhyyhddmNNNNNNNNdho+///:/sdh/:-:::::::::::////////++/::::::::::::////////++++ooossssyyyyyysssssooo+
+:::::::::::::::::::::::::::::::::::::::::------:///////////++++++++++++//////::://:omdsdNmNNNNmdyyyyyyhhhhhdmNNNNNNNmdhs+///+/:+ds::::::::::://///////+++//:::::::::://///////+++ooossssyyyyyyyyyssssooo
+:::::::::::::::::::::::::::::::::::::::::------://////////++++++++++++++//////::::/oddoymdNNNNmdyyyyyyyyhdhddmNNNNNNNdhso+//+o/:sd+::::::::///////////+++//::::::::://////////+++ooosssyyyyyyyyyyssssooo
+:::::::::::::::::::::::::::::::::::::::::------://////////++++++++++++++++/////:::/oyd/hmhNNmmmdyyyyyyyyyhhddmNNNNNNmhyso++++o+/+ms::::::::///////////+++//:::::::::://///////+++ooossssyyyyyyyyysssooo+
+:::::::::::::::::::::::::::::::::::::::::------://////////+++++++++++++++++/////:::/+d+ddyNNmmmdhyyssssyyyydmmNNNNNNmhyso++++os++dy/::::::////////////+++//:::::::::://////////+++ooossssyyyyyyssssoooo+
+:::::::::::::::::::::::::::::::::::::::::------:////////++++++++++++++++++++////::::+hodmymmydmdhyysssssyhhdmdNNNmmNdyysooo+oosssmy/::::::///////////++++/:::::::::::://////////+++ooossssssssssssooo+++
+::::::::::::::::::::::::::::::::::::::::::-----://////++o++++++++++++++++++++/////::/oohmymmshdhhssssssssyddddNNmhhmdyhssooooooyyhs/:::::://////////+++++/::::---:::::://////////++++oooossssssooooo+++/
+::::::::::::::::::::::::::::::::::::::::::-----://///+ossss+++++++++++++++++++////////+odddhyyyyysossssssyddhdmNmhydhhhyyssssooooso:::::///////////++++oo/:::-----:::::////////////++++oooooooooo+++++//
+::::::::::::::::::::::::::::::::::::::::::-----/++++osyysoo++++++ooo+++++++++++++///////odddssss+oooooossyhhymdNmyyhyyhhyyssoo+///////////////////++++ooo/::------::::://///////////+++++++o+++++++++///
+::::::::::::::::::::::::::::::::::::::::::-----/sssssoooo++++++ooooo+++++++++++++++//+///+hd+ooyo+ossssssyyyhdmmmysyyssysyyso+++/:/+///////////++++++oooo:::------:::::///////////++++++++++++++++++++++
+:::::::::::::::::::::::::::::::::::::::::------/+++++oooo++++++ooooooo++++++++++++++++////+hoosssooosssyyyhyyhmhdhyssos+/osssooo+oss+////////++++++++oooo:::------::::///////+++++++++++++++++++++++++++
+::::::::::::::::::::::::::::::::::::::::-------/oooooooo+++++oooooooooooooooo++++++++++////oyossssssoyyhdddoshhyhyhsyhh////+oyyyyyyso//////+++++++++oooso::-------:::://///+++++++++++++oooooooooooooooo
+::::::::::::::::::::::::::::::::::::::::-------/ooooo++++++++ooooooooooooooooo+++++++o++++++sossssssssshddyosyoosooohmh//////hddhyyy+////+++++++++++oooso::-------:::://///+++++++++++oooooooooooooooooo
+::::::::::::::::::::::::::::::::::::::::-------/+++++++++++++ooooooooooooooooooooooo+oo++++oossssssssysydhsoooooo+o+hmh//////yhyyyyo/////++++++++++ooosyo::-------::::://////++++++++++++++++oooooooooo+
+::::::::::::::::::::::::::::::::::::::::-------/+++++++++++++ooooooooooooooooooooooooooooooossyyssssyyyyhhooooooooo+hmy/+++//hhysyy+////++++++++oooooosyo:---------::::://////////++++++++++++++++++++++
+::::::::::::::::::::::::::::::::::::::::-------/+++++++++++++ooooooooooooooooooooooossssssssyhddddhhhyyhhyoooooooooodmy++++++hyssys///+++++++++oooooossyo:----------::::::::////////////////////////////
+:::::::::::::::::::::::::::::::::::::::::------/++++++++++++oooooooooooooooooosssssssyssssydmmmmmmmmhyhdhddhhhyyysssdmy+++++ohsosyo++++++++ooooooooosssys:-----------:::::::::::::::::::::://///////////
+:::::::::::::::::::::::::::::::::::::::::------/++++++++++++oooooooooooossssssssssyyyyysydmmmmmmmmddhhhdhyyyyyyyyyyydmhyyssoyyssyy++++++ooooooooooosssyys:----------------::::::::::::::::::::::::::::::
+::::::::::////////::::::::::::::::::::::::-----/++++++++++++oooooooosssssssssssyyyyhhhhdmmmmddhyyssyhyyhhssssssooooodNs+oosydsosyyyyssooooooooooooosssyhs:----------------------------::::::::::::::::::
+::::::://///////////::::::::::::::::::::::-----/++++++++++oooooooooosssssssssyyyhhhddmmmmdyyssssssshhyhhhyssssoooossdmyo+++shsossyddmmmmdddhhhyyyssssyyhs:--------------------------------------::::::::
+::::////////////////:::::::::::::::::::::::----/++++++++++ooooooososssyyyyyyhhhhdddmmmdysssssssyyyhhhhddhhyysssoosssyyysssshysoss//oyddmmmmmmmmmmmmysyhhs:----------------------------------------::::::
+::///////////////////:::::::::::::::::::::::---/+++++++++ooooooosssssyyyyyhhhdddmmmmdysssyyyyhhyyyyyhhhyyyyyssssssssyysssyhhyyyso/////oydmmmmmmmmmdyyyhhs::---------------------------------------::::::
+///////////////////////:::::::::::::::::::::::-/++++++ooooooooosssssyyyyoosyhddmmmmhsssyhhhhhhddhyhhyyhhhyyyysssssyyyssssydhsssss+//////+ymmmmmmmmhyyhhds::----------------------------------------:::::
+///////////////////////::::::::::::::::::::::::/oooooooooooooosssssyyyho///++o+osssossydddhdddhyhdddyhdhhhhyyyyyhhyyhhhsssyyssssoo+///////+dmmmmmmhyyhdds:::---------------------------------------:::::
+////////////////////////:::::::::::::::::::::::/oooooooooooooosssyyyhhh///+++o+o+++/oo++ooshddyhddhyyhhhmmhyyyhdhhyysssssysoysososo+///////+dmmmmmhyhhdds//::---------------------------------------::::
+//////////////////////////:::::::::::::::::::::/ooooooooooosssssyyyhhho/o++ossso+//+oo+////dmhhhyyhdhhyhdhyyyyyyyssssshhhssyhosysoo+////////ommmmmyyhddds+//:::-------------------------------------::::
+///////////////////////////////////::::::::::::/oooooooosssssssyyyhhdh//os+sos++o/+sso////ohhhyyyydmhhyyyyyysyhdhysyyysosyyhsoydhso++////////dmmmdhhhddhsoo+//:::-----------------------------------::::
+/////////////////////////////////////::::::::::+oooooosssssssyyyhhhdms/+oooooooosooo++o+//yyyyyyyymmhyyyyyyshddhyysosyysyysyooosdyso++///////dmmmdhhddmhsyso++//:::---------------------------------::::
+///////////////////////////////////////::::::::+ooosssssssyyyyhhhdmNm+soo++o+++ooooo++o+/+yyyyyyysyyssssssshhyssssshddyyshdhsooohhh++++//+//smmmmmmmmmmyshyyso++//:::-------------------------------::::
+/////////////////////////////////////////::::::+ssssssssyyyyhhhdmNNNs+++o+ooosysss+o+++//syyysssssooooooooossssssshdhysshdysoo+odho++++/+//ommmmmmNNNNmysdhhysso++//:::-----------------------------::::
+///////////////////////////////////////////::::+sssssssyyyhhhdmNNNNm+++ooooo+so++ooosos/+yyyyssssoooooooooooooososmdsooohyo++++os++++++//+smmmmmmmNNNNmyyddhhyysso++/::::----:::--------------------::::
+/////////////////////////////////////////////::+sssyhhhyyyyhhdmmmmmmmmddhhyssyossyoso+++syysysssssssssooooooosoooossooooooooooooooooooo+ohmmmmmmmmmmNNmdhddddhhyysoo+//:::::::::::-----------------:::::""");
+	
+	
+	
+def gunArt():
+    print(""" _                                                                    
+|_t+.__________________......_  /;_                                   
+;________________/     :    \ t""o.\__   
+:---|------------------t-----^-`--'  /      
+ \__L___________________\____________\                                
+              ""-. o .--. \--'/  l  .-t+.                             
+                  \ (   l) ;""   : /                                  
+                   l `--" o;      Y         
+                    """""";:  .-. :\                                  
+                          ::  '-'  ;\                                 
+                           ;;      : ;                                
+                           :: bug   ;|                                
+                           ;'-------';                                
+                           '"------"" """);
 #create the Main Menu of the game
 def mainMenu():
     #clear the screen
-    os.system('cls');
+    os.system(clear);
 
     #print the main menu
     print("Welcome to the", gameName, "Launcher")
@@ -268,6 +377,23 @@ def mainMenu():
     if userInput == '3':
         print('Exiting');
         lExit();
+    if userInput == '420':
+        print('Blaze It');
+        time.sleep(4);
+        mainMenu();
+    if userInput == 'gun':
+        gunArt();
+        time.sleep(5);
+        mainMenu();
+    if userInput == 'momo':
+        momo();
+        time.sleep(10);
+        mainMenu();
+    if userInput == 'res':
+        print('resarting...');
+        time.sleep(1);
+        dis();
+	
     #if user input is not valid run this
     else:
         print('please select a valid option')
